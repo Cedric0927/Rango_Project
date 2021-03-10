@@ -1,14 +1,26 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-
 # Create your views here.
-from rango.models import Category
+from rango.models import Category, Page
 
 
 def index(request):
-    category_list = Category.objects.order_by('likes')[:5]
+    categories = Category.objects.all()
+    print(categories)
     context = {
-        'categories': category_list
+        "categories": categories
     }
-    return render(request, 'rango/index.html', context=context)
+    return render(request, 'rango/index.html', locals())
+
+
+def show_category(request, slug):
+    categories = Category.objects.get(slug=slug)
+    print(categories)
+    print(type(categories))
+    pages = Page.objects.filter(category_id=categories.id)
+    context = {
+        'categories': categories,
+        'pages': pages,
+    }
+    return render(request, 'rango/context.html', locals())

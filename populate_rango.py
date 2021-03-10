@@ -47,7 +47,7 @@ def populate():
             add_page(c, p["title"], p['url'])
 
     for c in Category.objects.all():
-        for p in Page.objects.filter(catgory=c):
+        for p in Page.objects.filter(category=c):
             print("- {0} - {1}".format(str(c), str(p)))
 
 
@@ -63,6 +63,7 @@ def add_cat(name):
     c = Category.objects.get_or_create(name=name)[0]
     c.save()
     return c
+
 
 if __name__ == '__main__':
     print("Starting Rango population script...")
