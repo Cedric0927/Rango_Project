@@ -8,5 +8,6 @@ from rango import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('<slug>', views.show_category, name="show_category")
+    path('add_category/', views.add_category, name="add_category"),
+    path('<slug>', views.show_category, name="show_category"),
 ]
