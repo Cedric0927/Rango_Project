@@ -5,15 +5,20 @@
     <title>Title</title>
 </head>
 <body>
-
+{% if user.is_authenticated %}
+    Hello {{ user.username }}
+{% else %}
+    Hello Stranger
+{% endif %}
+<hr>
 <h2>I have many categories</h2>
 <ul>
     {% for category in categories %}
-        <li><a href="{{ category.slug }}"> {{ category.name }}  </a> </li>
+        <li><a href="{{ category.slug }}"> {{ category.name }}  </a></li>
     {% endfor %}
 </ul>
 <hr>
 <h3>Add category</h3>
-<a href="rango/add_category/">Add</a><br>
+<a href="{% url 'add_category' %}">Add</a><br>
 </body>
 </html>
