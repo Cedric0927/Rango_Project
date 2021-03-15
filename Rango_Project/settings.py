@@ -29,6 +29,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rango',
+
 ]
 
 MIDDLEWARE = [
@@ -129,3 +131,35 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_URL = 'register/'
+
+"""
+django-registration-redux
+"""
+
+REGISTRATION_OPEN = True
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = '/rango/'
+# LOGIN_URL = '/rango/login/'
+
+"""
+Email
+"""
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.office365.com'
+# EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = True
+EMAIL_USE_STARTTLS = True
+
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'Cedric.Niu@rosenbergerap.com'
+EMAIL_HOST_PASSWORD = 'njc0927,'
+SERVER_EMAIL = EMAIL_HOST_USER
+#
+# EMAIL_HOST = 'smtp.qq.com'
+# EMAIL_PORT = 465
+# EMAIL_USE_SSL = True
+# EMAIL_USE_TLS = False
+# EMAIL_HOST_USER = '704956727@qq.com'
+# EMAIL_HOST_PASSWORD = 'afvevuqxguwybdbg'
