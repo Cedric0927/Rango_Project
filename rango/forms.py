@@ -41,6 +41,9 @@ class PageForm(forms.ModelForm):
 
 
 class UserForm(forms.ModelForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={"id":"user_name",
+                                                             'class': 'form-control',
+                                                             'placeholder':"Name input"}))
     password = forms.CharField(widget=forms.PasswordInput())
 
     class Meta:
@@ -52,3 +55,9 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = Userprofile
         fields = ('website', 'picture')
+
+
+class BootUser(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('email', 'password')

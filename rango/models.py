@@ -46,3 +46,11 @@ class Userprofile(models.Model):
     def __str__(self):
         return self.user.username
 
+
+class BootUser(models.Model):
+    user = models.CharField(max_length=126, unique=True)
+    password = models.CharField(max_length=126)
+    email = models.EmailField()
+
+    class Meta:
+        db_table = 'Bool_User'

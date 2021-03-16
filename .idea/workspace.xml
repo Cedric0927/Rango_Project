@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71108b03-3e10-40b1-ab12-8caed358eb72" name="默认的" comment="3.11">
-      <change afterPath="$PROJECT_DIR$/rango/mial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/rango/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/logout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/registration_complete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/registration_form.html" afterDir="false" />
+    <list default="true" id="71108b03-3e10-40b1-ab12-8caed358eb72" name="默认的" comment="3.15">
+      <change afterPath="$PROJECT_DIR$/rango/migrations/0003_bootuser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/bootstrap/register.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/boot/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/boot/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rango_Project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Rango_Project/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rango_Project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Rango_Project/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rango/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/rango/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rango/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/rango/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rango/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rango/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rango/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rango/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/rango/add_category.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/rango/add_category.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/rango/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/rango/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/rango/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/rango/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/rango/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/rango/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -44,19 +43,22 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1pTVxNJH3idDMmPHg8Tsa1LQql0" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RunManager" selected="Python.mial">
     <configuration name="mial" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -148,6 +150,14 @@
       <workItem from="1615381354728" duration="558000" />
       <workItem from="1615381915863" duration="4295000" />
     </task>
+    <task id="LOCAL-00001" summary="3.15">
+      <created>1615799792206</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1615799792206</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,14 +175,9 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/rango/views.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="3.15" />
+    <option name="LAST_COMMIT_MESSAGE" value="3.15" />
   </component>
 </project>

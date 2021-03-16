@@ -2,33 +2,21 @@
 {% load static %}
 
 {% block block_title %}
-    register
+    {{ title }}
 {% endblock %}
 
-{% block body_block %}
-<!--    <h1> Welcome to register rango</h1>-->
-<!--    {% if registered %}-->
-<!--        Rango says: <strong>thank you for registering!</strong>-->
-<!--        <a href="{% url 'index' %} ">Come back home</a><br>-->
-<!--    {% else %}-->
-<!--        Rango says: <strong>register here!</strong><br />-->
-<!--        <form id="user_form" method="post" action="{% url 'register' %}" enctype="multipart/form-data">-->
-<!--        {% csrf_token %}-->
+{% block ext_js %}
+    <script type="text/javascript" src="{% static '/bootstrap/register.js' %}"></script>
+{% endblock %}
 
-<!--        {{ user_form.as_p }}-->
-<!--        {{ profile_form.as_p }}-->
-
-<!--        <input type="submit" name="submit" value="Register">-->
-<!--        </form>-->
-<!--    {% endif %}-->
-<!--    <hr>-->
+{% block content %}
+<body>
 <form id="user_form" method="post" action="{% url 'bootstrap_register' %}">
     {% csrf_token %}
     <div class="container">
         <div class="form-group">
             <label for="user_name">Name</label>
-<!--            <input name="username" type="text" class="form-control" id="user_name" placeholder="Name input">-->
-            {{ user_form.username }}
+            <input name="username" type="text" class="form-control" id="user_name" placeholder="Name input">
         </div>
         <div class="form-group">
             <label for="email">Email address</label>
@@ -50,4 +38,6 @@
         <button type="submit" class="btn btn-default">Submit</button>
     </div>
 </form>
+
+</body>
 {% endblock %}

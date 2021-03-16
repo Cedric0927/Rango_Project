@@ -13,6 +13,8 @@ urlpatterns = [
     path('add_page/<category_slug>', views.add_page, name="add_page"),
     path('register/', views.register, name="register"),
     path('login/', views.user_login, name="login"),
-    path('logout/', views.user_logout, name="logout")
+    path('logout/', views.user_logout, name="logout"),
+    path('bootstrap_register/', views.bootstrap_register, name='bootstrap_register'),
+    path('bootstrap_login/', views.bootstrap_login, name='bootstrap_login')
 
 ]

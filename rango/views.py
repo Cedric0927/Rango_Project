@@ -8,11 +8,11 @@ from django.shortcuts import render, get_object_or_404
 # Create your views here.
 from rango.forms import CategoryForm, PageForm, UserForm, UserProfileForm
 from rango.mial import send_verify_email
-from rango.models import Category, Page
+from rango.models import Category, Page, BootUser
 
 
 def first(request):
-    send_verify_email()
+    # send_verify_email()
     return HttpResponseRedirect('/rango/')
 
 
@@ -161,3 +161,37 @@ def get_server_side_cookie(request, cookie, default_val=None):
     if not val:
         val = default_val
     return val
+
+
+def bootstrap_register(request):
+    if request.method == 'GET':
+        context = {
+            'title': 'register'
+        }
+        return render(request, 'boot/register.html', context=context)
+    elif request.method == 'POST':
+        user_name = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        print([user_name, email, password])
+        user = BootUser()
+        user.user = user_name
+        user.email = email
+        user.password = password
+        user.save()
+        # return HttpResponse('注册成功')
+        return HttpResponseRedirect('bootstrap_login')
+        # return render(request, 'boot/register.html', context={})
+
+
+def bootstrap_login(request):
+    if request.method == 'GET':
+        context = {
+            'title': 'Login'
+        }
+        return render(request, 'boot/login.html', context=context)
+    elif request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+    return None
