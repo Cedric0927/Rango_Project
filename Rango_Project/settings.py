@@ -166,3 +166,21 @@ SERVER_EMAIL = EMAIL_HOST_USER
 # EMAIL_USE_TLS = False
 # EMAIL_HOST_USER = '704956727@qq.com'
 # EMAIL_HOST_PASSWORD = 'afvevuqxguwybdbg'
+
+"""
+CACHE
+"""
+
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+#         'LOCATION': '127.0.0.1:8000',
+#     }
+# }
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'my_cache_table',
+    }
+}

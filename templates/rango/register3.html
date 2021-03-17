@@ -1,0 +1,42 @@
+{% extends 'rango/base.html' %}
+{% load static %}
+
+{% block block_title %}
+    register_3
+{% endblock %}
+
+{% block body_block %}
+
+<form id="user_form" method="post" action="{% url 'register3' %}">
+    {% csrf_token %}
+    <div class="container">
+        <div class="form-group">
+            <label for="user_name">Name</label>
+<!--            <input name="username" type="text" class="form-control" id="user_name" placeholder="Name input">-->
+            {{ user_form.username }}
+        </div>
+        <div class="form-group">
+            <label for="user_mail">Email address</label>
+<!--            <input name="user_name" type="email" class="form-control" id="email" placeholder="Email">-->
+            {{ user_form.email }}
+        </div>
+        <div class="form-group">
+            <label for="user_password">Password</label>
+<!--            <input name="password" type="password" class="form-control" id="password" placeholder="Password">-->
+            {{ user_form.password }}
+        </div>
+        <div class="form-group">
+            <label for="re_password">Password</label>
+            <input name="re_password" type="password" class="form-control" id="re_password" placeholder="Password">
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Check me out
+            </label>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="button" class="btn btn-default"><a href="{% url 'sendmail' %}">Send Mail</a></button>
+    </div>
+</form>
+
+{% endblock %}

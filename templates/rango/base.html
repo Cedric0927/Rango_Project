@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-{# <html lang="zh">#}
+<!--<html lang="zh">-->
 <head>
     <title>
         Rango-
@@ -9,6 +9,7 @@
         How to Tango with Django!
         {% endblock %}
     </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     {% block ext_js %}
@@ -85,23 +86,35 @@
 </div>
 <hr>
 <div>
-    <ul>
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'add_category' %}">Add category</a></li>
-        <li><a href="{% url 'logout' %}">Log out</a></li>
-        {% else %}
-        <li><a href="{% url 'login' %}">Login Here</a></li>
-        {% endif %}
-        <li><a href="{% url 'register' %}">Register Here</a></li>
-        <li><a href="{% url 'index' %}">Index</a></li>
-    </ul>
-    <hr>
-    <ul>
-        <li><a href="{% url 'registration_register' %}">register2</a></li>
-        <li><a href="{% url 'auth_login' %}">login_2</a></li>
-        <li><a href="{% url 'auth_logout' %}?next=/rango/">logout2</a></li>
-    </ul>
-
+    <table width="100%">
+        <tr>
+            <td>
+                <ul>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'add_category' %}">Add category</a></li>
+                    <li><a href="{% url 'logout' %}">Log out</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}">Login Here</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'register' %}">Register Here</a></li>
+                    <li><a href="{% url 'index' %}">Index</a></li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li><a href="{% url 'registration_register' %}">register2</a></li>
+                    <li><a href="{% url 'auth_login' %}">login_2</a></li>
+                    <li><a href="{% url 'auth_logout' %}?next=/rango/">logout2</a></li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li><a href="{% url 'register3' %}">Register3</a></li>
+                    <li><a href="{% url 'login3' %}">Login3</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
 
 </div>
 

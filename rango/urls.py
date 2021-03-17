@@ -15,6 +15,9 @@ urlpatterns = [
     path('login/', views.user_login, name="login"),
     path('logout/', views.user_logout, name="logout"),
     path('bootstrap_register/', views.bootstrap_register, name='bootstrap_register'),
-    path('bootstrap_login/', views.bootstrap_login, name='bootstrap_login')
-
+    path('bootstrap_login/', views.bootstrap_login, name='bootstrap_login'),
+    path('register3/', views.register3, name='register3'),
+    path('login3/', views.login3, name='login3'),
+    path('sendmail/', views.send_email, name="sendmail"),
+    path('activate/', views.activate, name='activate')
 ]

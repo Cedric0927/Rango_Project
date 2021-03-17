@@ -41,10 +41,20 @@ class PageForm(forms.ModelForm):
 
 
 class UserForm(forms.ModelForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={"id":"user_name",
+    username = forms.CharField(widget=forms.TextInput(attrs={"id": "user_name",
                                                              'class': 'form-control',
-                                                             'placeholder':"Name input"}))
-    password = forms.CharField(widget=forms.PasswordInput())
+                                                             'placeholder': "Name Input",
+                                                             'label': 'Name label'}))
+    email = forms.EmailField(widget=forms.TextInput(attrs={
+        "id": "user_mail",
+        "class": "form-control",
+        "placeholder": 'Email'
+    }))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={
+        "id": "user_password",
+        "class": "form-control",
+        "placeholder": 'Password'
+    }))
 
     class Meta:
         model = User

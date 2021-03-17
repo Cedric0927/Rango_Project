@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71108b03-3e10-40b1-ab12-8caed358eb72" name="默认的" comment="3.15">
-      <change afterPath="$PROJECT_DIR$/rango/migrations/0003_bootuser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/register.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/boot/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/boot/register.html" afterDir="false" />
+    <list default="true" id="71108b03-3e10-40b1-ab12-8caed358eb72" name="默认的" comment="3.16">
+      <change afterPath="$PROJECT_DIR$/rango/send_mail2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/rango/login3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/rango/register3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user/activate.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rango_Project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Rango_Project/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rango/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/rango/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rango/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/rango/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rango/mial.py" beforeDir="false" afterPath="$PROJECT_DIR$/rango/mail.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rango/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rango/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rango/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rango/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/rango/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/rango/base.html" afterDir="false" />
@@ -33,6 +33,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -57,11 +58,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/rango" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.mial">
-    <configuration name="mial" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\pythonProject\Rango_Project\rango" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.send_mail2">
+    <configuration name="mail" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Rango_Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -73,7 +79,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rango/mial.py" />
+      <option name="SCRIPT_NAME" value="D:\pythonProject\Rango_Project\rango\mail.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -95,6 +101,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/populate_rango.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="send_mail2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Rango_Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/rango" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rango/send_mail2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -128,11 +155,13 @@
     </configuration>
     <list>
       <item itemvalue="Python.populate_rango" />
-      <item itemvalue="Python.mial" />
+      <item itemvalue="Python.mail" />
+      <item itemvalue="Python.send_mail2" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.mial" />
+        <item itemvalue="Python.send_mail2" />
+        <item itemvalue="Python.mail" />
         <item itemvalue="Python.populate_rango" />
       </list>
     </recent_temporary>
@@ -178,6 +207,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="3.15" />
-    <option name="LAST_COMMIT_MESSAGE" value="3.15" />
+    <MESSAGE value="3.16" />
+    <option name="LAST_COMMIT_MESSAGE" value="3.16" />
   </component>
 </project>

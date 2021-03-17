@@ -1,14 +1,18 @@
+import uuid
 from datetime import datetime
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.core.cache import cache
+
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 from rango.forms import CategoryForm, PageForm, UserForm, UserProfileForm
-from rango.mial import send_verify_email
 from rango.models import Category, Page, BootUser
+from rango.send_mail2 import send_mail
 
 
 def first(request):
@@ -195,3 +199,72 @@ def bootstrap_login(request):
         password = request.POST.get('password')
 
     return None
+
+
+def register3(request):
+    if request.method == 'POST':
+        user_form = UserForm(data=request.POST)
+        if user_form.is_valid():
+            user = user_form.save(commit=False)
+            re_password = request.POST.get('re_password')
+            user.username = user.email
+            user.is_active = False
+            if re_password == user.password:
+                user.set_password(user.password)
+                user.save()
+
+                u_token = uuid.uuid4().hex
+                print('注册' + str(u_token) + str(user.email))
+                cache.set(u_token, user.email, timeout=60 * 10)
+                send_mail(user.username, u_token)
+            else:
+                return HttpResponse('Password is wrong')
+        else:
+            return HttpResponse(user_form.errors)
+    else:
+        user_form = UserForm
+
+    context = {
+        'user_form': user_form
+    }
+    return render(request, 'rango/register3.html', context=context)
+
+
+def login3(request):
+    if request.method == 'POST':
+        mail = request.POST.get('email')
+        password = request.POST.get('password')
+        print([mail, password])
+        user = authenticate(username=mail, password=password)
+        if user:
+            if user.is_active:
+                login(request, user)
+                # send_mail
+                return HttpResponse('Login success')
+            else:
+                return HttpResponse('Your discount is not activate')
+        else:
+            return HttpResponse('email or password is wrong')
+    else:
+        context = {
+            'title': "login3"
+        }
+        return render(request, 'rango/login3.html', context=context)
+
+
+def send_email(request):
+    username = ''
+    url = 'http://127.0.0.1"8000/rango/activate/?u_token='
+    send_mail(username, url)
+    return HttpResponse('Send success')
+
+
+def activate(request):
+    u_token = request.GET.get('u_token')
+    print(u_token)
+    user_email = cache.get(u_token)
+    print(user_email)
+    user = User.objects.get(email=user_email)
+    user.is_active = True
+    user.save()
+    return HttpResponse('Activate success')
