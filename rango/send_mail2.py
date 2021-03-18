@@ -6,7 +6,7 @@ import pythoncom
 import win32com.client as win32
 
 
-def send_mail(username, token):
+def send_mail(username, token, mail_type):
     pythoncom.CoInitialize()
     outlook = win32.Dispatch('Outlook.Application')
 
@@ -18,7 +18,7 @@ def send_mail(username, token):
 
     mail_item.BodyFormat = 2  # 2: Html format
     name = username.split('.')[0]
-    url = 'http://127.0.0.1:8000/rango/activate/?u_token={}'.format(token)
+    url = 'http://127.0.0.1:8000/rango/{}/?u_token={}'.format(mail_type, token)
     mail_item.HTMLBody = '''
         <h4>Hello {}, </h4>
         <p>Welcome to register Rango, Please click the link to activate your account</p>

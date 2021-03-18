@@ -1,9 +1,11 @@
 import uuid
 from datetime import datetime
 
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib.auth.password_validation import validate_password
 from django.core.cache import cache
 
 from django.http import HttpResponse, HttpResponseRedirect
@@ -16,7 +18,6 @@ from rango.send_mail2 import send_mail
 
 
 def first(request):
-    # send_verify_email()
     return HttpResponseRedirect('/rango/')
 
 
@@ -209,6 +210,7 @@ def register3(request):
             re_password = request.POST.get('re_password')
             user.username = user.email
             user.is_active = False
+            validate_password(user.password)
             if re_password == user.password:
                 user.set_password(user.password)
                 user.save()
@@ -216,10 +218,12 @@ def register3(request):
                 u_token = uuid.uuid4().hex
                 print('注册' + str(u_token) + str(user.email))
                 cache.set(u_token, user.email, timeout=60 * 10)
-                send_mail(user.username, u_token)
+                send_mail(user.username, u_token, mail_type='activate')
             else:
-                return HttpResponse('Password is wrong')
+                messages.warning(request, 'It is difference between two input')
+                # return HttpResponse('Password is wrong')
         else:
+            print(user_form.errors)
             return HttpResponse(user_form.errors)
     else:
         user_form = UserForm
@@ -253,18 +257,68 @@ def login3(request):
 
 
 def send_email(request):
-    username = ''
-    url = 'http://127.0.0.1"8000/rango/activate/?u_token='
-    send_mail(username, url)
-    return HttpResponse('Send success')
+    if request.method == 'POST':
+        u_token = uuid.uuid4().hex
+        mail = request.POST.get('email')
+        send_mail(mail, u_token, mail_type='forget')
+        request.session['forget_mail'] = mail
+        return HttpResponse('Mail has sent')
+    else:
+        return render(request, 'find_password/forget.html')
 
 
 def activate(request):
-    u_token = request.GET.get('u_token')
-    print(u_token)
-    user_email = cache.get(u_token)
-    print(user_email)
-    user = User.objects.get(email=user_email)
-    user.is_active = True
-    user.save()
-    return HttpResponse('Activate success')
+    if request.method == 'POST':
+        u_token = request.GET.get('u_token')
+        print(u_token)
+        user_email = cache.get(u_token)
+        print(user_email)
+        user = User.objects.get(email=user_email)
+        user.is_active = True
+        user.save()
+        return HttpResponse('Activate success')
+    else:
+        return render(request, 'find_password/new_password.html')
+
+
+def change_password(request):
+    # if request.method == 'POST':
+    username = request.session.get('_auth_user_id')
+    if username:
+        user = User.objects.get(pk=username)
+        user.set_password('12345')
+        user.save()
+    return HttpResponse('Change success')
+
+
+def set_cookie(request):
+    # response = HttpResponse('')
+    # # user = response.set_cookie('username', 'cedric')
+    # user = response.get('username')
+    # response.set_signed_cookie('content', user, '1234')
+    request.session['username'] = 'cedic'
+    return HttpResponse('Session add success')
+
+
+def get_cookie(request):
+    # user = request.session.get('username')
+    # return HttpResponse(user)
+    return HttpResponseRedirect('/rango/login3/')
+
+
+def forget_password(request):
+    if request.method == 'POST':
+        mail = request.session.get('forget_mail')
+        print(mail)
+        user = User.objects.get(email=mail)
+        new_password = request.POST.get('password')
+        user.set_password(new_password)
+        user.save()
+        return HttpResponseRedirect('/rango/login3/')
+    else:
+        return render(request, 'find_password/new_password.html')
+
+
+def test(request):
+
+    return HttpResponse('<ul class="errorlist"><li>username<ul class="errorlist"><li>A user with that username already exists.</li></ul></li></ul>')

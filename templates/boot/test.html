@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../../static/js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h3>The number is {{count}}</h3>
+			<button v-on:click="add">+</button>
+			<button v-on:click="sub">-</button>
+		</div>
+		<script>
+			const app = new Vue({
+				el:'#app',
+				data:{
+					count: 0
+				},
+				methods:{
+					add: function(){
+						this.count++
+					},
+					sub: function(){
+						this.count--
+					}
+				}
+
+			})
+		</script>
+	</body>
+</html>

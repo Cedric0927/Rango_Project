@@ -5,6 +5,10 @@
     register_3
 {% endblock %}
 
+{% block ext_js %}
+
+{% endblock %}
+
 {% block body_block %}
 
 <form id="user_form" method="post" action="{% url 'register3' %}">
@@ -34,9 +38,47 @@
                 <input type="checkbox"> Check me out
             </label>
         </div>
+        {% if messages %}
+
+            {% for message in messages %}
+<!--        <div class="alert alert-warning alert-dismissible" role="alert">-->
+<!--            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+<!--            <strong>Warning!</strong> {{ message }}-->
+<!--            </div>-->
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+            {% endfor %}
+
+        {% endif %}
         <button type="submit" class="btn btn-default">Submit</button>
-        <button type="button" class="btn btn-default"><a href="{% url 'sendmail' %}">Send Mail</a></button>
     </div>
 </form>
+
+<hr>
+		<div id="app">
+			<h3>The number is ${count}</h3>
+			<button v-on:click="count++">+</button>
+			<button v-on:click="sub">-</button>
+		</div>
+        <script src="../../static/js/vue.js"></script>
+		<script>
+			const app = new Vue({
+				el:'#app',
+				data:{
+					count: 0
+				},
+				methods:{
+					add: function(){
+						this.count++
+					},
+					sub: function(){
+						this.count--
+					}
+				},
+				delimiters: ['${', '}'],
+
+			})
+		</script>
+
+
 
 {% endblock %}

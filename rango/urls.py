@@ -19,5 +19,11 @@ urlpatterns = [
     path('register3/', views.register3, name='register3'),
     path('login3/', views.login3, name='login3'),
     path('sendmail/', views.send_email, name="sendmail"),
-    path('activate/', views.activate, name='activate')
+    path('activate/', views.activate, name='activate'),
+    path('change_password/', views.change_password, name='change_password'),
+    path('setcookie/', views.set_cookie, name='setcookie'),
+    path('getcookie/', views.get_cookie, name='getcookie'),
+    path('forget/', views.forget_password, name='forget_password'),
+    path('send_mail/', views.send_email, name='send_email'),
+    path('test/', views.test, name='test'),
 ]

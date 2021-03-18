@@ -1,0 +1,21 @@
+{% extends 'rango/base.html' %}
+{% load static %}
+
+{% block block_title %}
+    Forget password
+{% endblock %}
+{% block content %}
+<body>
+<form method="post" action="{% url 'send_email' %}">
+    {% csrf_token %}
+    <div class="container">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+    </div>
+    <button type="submit" class="btn btn-default">Send mail</button>
+    </div>
+</form>
+
+</body>
+{% endblock %}

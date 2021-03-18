@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('rango/', include('rango.urls')),
     path('accounts/', include('registration.backends.simple.urls')),
-    path('', views.first)
+    path('', views.first),
 ]
